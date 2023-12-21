@@ -28,12 +28,12 @@ const Details = () => {
     }, [page])
 
     return (
-        <>{pageData.data.length === 0 ? <NotFound /> :
+        <>{pageData.data.length === 0 && !loading ? <NotFound /> :
             <BgWrapper>
                 <div className='flex w-full h-full pt-10 items-center flex-col gap-6 relative overflow-y-auto pb-6'>
                     <BackButton />
-                    <h1 className='text-4xl'>History</h1>
-                    {loading ? <h1 className='text-4xl mt-10'>Loading...</h1> :
+                    <h1 className='text-base md:text-4xl'>History</h1>
+                    {loading ? <h1 className='text-xl md:text-4xl mt-10'>Loading...</h1> :
                         <>
                             <div className='table-container'>
                                 <table className='table'>
@@ -46,8 +46,8 @@ const Details = () => {
                                     <tbody>
                                         {pageData.data.map((item, ind) => {
                                             return <tr key={ind} className='odd:bg-gray-800'>
-                                                <td className='td' style={{ maxWidth: '400px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{item.fullUrl}</td>
-                                                <td className='td'><Link to={`/page-details/${item._id}`} className='px-2 py-1 bg-indigo-600 rounded-md transition-all hover:bg-indigo-900'>View Details</Link></td>
+                                                <td className='td'>{item.fullUrl}</td>
+                                                <td className='td'><Link to={`/page-details/${item._id}`} className='p-1 md:px-2 md:py-1 bg-indigo-600 rounded-md transition-all hover:bg-indigo-900'>View Details</Link></td>
                                             </tr>
                                         })}
                                     </tbody>
@@ -56,7 +56,7 @@ const Details = () => {
                             <Pagination perPage={pageData.perPage} count={pageData.count} path='/details' page={parseInt(page)} />
                         </>}
                     <div className=' flex justify-center w-full'>
-                        <p className='text-sm text-slate-500'>Created by: <Link to="https://portfolio-vbhardwaj09.netlify.app/" className='text-base text-white'>Vishal Bhardwaj</Link></p>
+                        <p className='text-xs md:text-sm text-slate-500'>Created by: <Link to="https://portfolio-vbhardwaj09.netlify.app/" className='text-sm md:text-base text-white'>Vishal Bhardwaj</Link></p>
                     </div>
                 </div>
             </BgWrapper >}

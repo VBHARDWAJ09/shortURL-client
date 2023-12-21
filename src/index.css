@@ -12,11 +12,11 @@
   }
 
   .th {
-    @apply py-4 px-10 uppercase text-base font-medium text-white min-w-[400px];
+    @apply px-4 py-3 md:py-4 md:px-10 uppercase text-xs md:text-base font-medium text-white w-full md:min-w-[400px];
   }
 
   .td {
-    @apply py-4 px-10 text-base font-normal text-white;
+    @apply px-4 py-3 md:py-4 md:px-10 text-xs md:text-base font-normal text-white max-w-[200px] md:max-w-[400px] overflow-hidden whitespace-nowrap text-ellipsis;
   }
 
   .pagination-link {

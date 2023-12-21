@@ -29,27 +29,27 @@ const PageDetails = () => {
         <BgWrapper>
             <div className='w-full h-full flex pt-10 items-center flex-col gap-10 relative overflow-y-auto pb-6'>
                 <BackButton />
-                <h1 className='text-4xl capitalize'>Here is the details</h1>
+                <h1 className='text-abse md:text-4xl capitalize'>URL details</h1>
                 {loading ? <h1 className='text-4xl'>Loading...</h1> : <div className='table-container'>
-                    <table className='table'>
+                    <table className='flex bg-gray-600 md:table'>
                         <thead>
-                            <tr className='tr'>
+                            <tr className='tr flex flex-col md:flex-row'>
                                 <th className='th'>Full Url</th>
                                 <th className='th'>Short Url</th>
                                 <th className='th'>No of Clicks</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr className='odd:bg-gray-800'>
-                                <td className='td'  style={{ maxWidth: '200px', overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{data?.fullUrl}</td>
-                                <td className='td'>{siteUrl + data?.shortUrlId}</td>
+                            <tr className='odd:bg-gray-800 flex flex-col md:flex-row'>
+                                <td className='td'>{data?.fullUrl}</td>
+                                <td className='td'><Link  target='_blank' to={siteUrl + data?.shortUrlId}>{siteUrl + data?.shortUrlId}</Link></td>
                                 <td className='td'>{data.clicks}</td>
                             </tr>
                         </tbody>
                     </table>
                 </div>}
                 <div className=' flex justify-center w-full'>
-                    <p className='text-sm text-slate-500'>Created by: <Link to="https://portfolio-vbhardwaj09.netlify.app/" className='text-base text-white'>Vishal Bhardwaj</Link></p>
+                    <p className='text-xs md:text-sm text-slate-500'>Created by: <Link to="https://portfolio-vbhardwaj09.netlify.app/" className='text-sm md:text-base text-white'>Vishal Bhardwaj</Link></p>
                 </div>
             </div>
         </BgWrapper>

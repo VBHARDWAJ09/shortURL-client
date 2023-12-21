@@ -30,10 +30,10 @@ const ShortUrl = () => {
         <>
             {error ? <NotFound /> : <BgWrapper>
                 <div className='flex w-full h-full justify-center items-center flex-col overflow-y-auto pb-6'>
-                    <h1 className='text-6xl'>Loading...</h1>
+                    <h1 className='text-xl md:text-6xl'>Loading...</h1>
                 </div>
                 <div className=' flex justify-center w-full'>
-                    <p className='text-sm text-slate-500'>Created by: <Link to="https://portfolio-vbhardwaj09.netlify.app/" className='text-base text-white'>Vishal Bhardwaj</Link></p>
+                    <p className='text-xs md:text-sm text-slate-500'>Created by: <Link to="https://portfolio-vbhardwaj09.netlify.app/" className='text-sm md:text-base text-white'>Vishal Bhardwaj</Link></p>
                 </div>
             </BgWrapper>}</>
 
