@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  .table {
+    @apply w-full bg-gray-600 rounded-md;
+  }
+
+  .tr {
+    @apply border-b border-gray-800 text-left;
+  }
+
+  .th {
+    @apply py-4 px-10 uppercase text-base font-medium text-white min-w-[400px];
+  }
+
+  .td {
+    @apply py-4 px-10 text-base font-normal text-white;
+  }
+
+  .pagination-link {
+    @apply border border-gray-800 text-gray-500 font-medium block py-2 px-4 bg-gray-900 text-sm border-r-0;
+  }
+
+  .pagination-link.active {
+    @apply bg-gray-500 text-gray-900;
+  }
+
+  .pagination-link-light {
+    @apply border border-gray-400 text-gray-700 font-medium block py-2 px-4 bg-white text-sm;
+  }
+
+  .pagination-link-light.active {
+    @apply bg-gray-700 text-white;
+  }
+
+}
