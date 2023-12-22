@@ -15,11 +15,13 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <MainPage />
+        element: <MainPage />,
+        errorElement: <NotFound />
       },
       {
         path: "/:shortUrl",
-        element: <ShortUrl />
+        element: <ShortUrl />,
+        errorElement: <NotFound />
       }
     ]
   }, {
@@ -39,6 +41,9 @@ const router = createBrowserRouter([
   }, {
     path: "/page-details/:id",
     element: <PageDetails />,
+  }, {
+    path: "/url-page/:shortUrl",
+    element: <ShortUrl />,
   }, {
     path: "*",
     element: <NotFound />,
