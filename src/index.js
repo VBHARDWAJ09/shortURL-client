@@ -12,7 +12,16 @@ import NotFound from './components/NotFound/NotFound'
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <MainPage />,
+    children: [
+      {
+        path: "/",
+        element: <MainPage />
+      },
+      {
+        path: "/:shortUrl",
+        element: <ShortUrl />
+      }
+    ]
   }, {
     path: "/details",
     errorElement: <NotFound />,
@@ -30,10 +39,6 @@ const router = createBrowserRouter([
   }, {
     path: "/page-details/:id",
     element: <PageDetails />,
-  },
-  {
-    path: "/:shortUrl",
-    element: <ShortUrl />
   }, {
     path: "*",
     element: <NotFound />,
