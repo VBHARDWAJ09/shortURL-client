@@ -42,7 +42,7 @@ const PageDetails = () => {
                         <tbody>
                             <tr className='odd:bg-gray-800 flex flex-col md:flex-row'>
                                 <td className='td'>{data?.fullUrl}</td>
-                                <td className='td'><Link  target='_blank' to={`/${data?.shortUrlId}`}>{siteUrl + data?.shortUrlId}</Link></td>
+                                <td className='td'><Link  target='_blank' to={`/${data?.shortUrlId}`}>{"https://shorturl-vbhardwaj09.vercel.app/" + data?.shortUrlId}</Link></td>
                                 <td className='td'>{data.clicks}</td>
                             </tr>
                         </tbody>
