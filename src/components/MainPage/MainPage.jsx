@@ -3,12 +3,14 @@ import BgWrapper from '../Wrapper/BgWrapper'
 import { Link } from 'react-router-dom'
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import { createUrl, siteUrl } from '../../service/ApiService';
+import { useSelector } from 'react-redux';
 
 const MainPage = () => {
     const [inputValue, setInputValue] = useState("")
     const [error, setError] = useState(false)
     const [newUrl, setNewUrl] = useState({ value: "", show: false, disable: false, prevValue: "" })
     const [loading, setLoading] = useState(false)
+    const { userToken } = useSelector(state => state.authReducer)
 
     const handelSubmit = async (e) => {
         setLoading(true)
@@ -24,8 +26,7 @@ const MainPage = () => {
                 return { ...prev, show: false, prevValue: "" }
             })
         } else {
-            const res = await createUrl(inputValue)
-            console.log(res)
+            const res = await createUrl(inputValue, userToken)
             if (res && res.status.toString() === "200") {
                 setNewUrl(prev => {
                     return { ...prev, value: siteUrl + res.data.shortUrl, show: true, disable: false, prevValue: inputValue }

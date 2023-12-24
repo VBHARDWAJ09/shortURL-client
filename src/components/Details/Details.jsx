@@ -5,16 +5,18 @@ import Pagination from '../Pagination/Pagination';
 import BackButton from '../BackButton/BackButton';
 import { getAllData } from '../../service/ApiService';
 import NotFound from '../NotFound/NotFound';
+import { useSelector } from 'react-redux';
 
 const Details = () => {
     let { page } = useParams()
+    const { userToken } = useSelector(state => state.authReducer)
     page = page || 1;
     const [loading, setLoading] = useState(true)
     const [pageData, setPageData] = useState({ data: [] })
 
     const getPageData = async (p) => {
         setLoading(true)
-        const res = await getAllData(p)
+        const res = await getAllData(p, userToken)
         if (res && res.status.toString() === "200") {
             setLoading(false)
             setPageData(res.data)
@@ -25,12 +27,13 @@ const Details = () => {
 
     useEffect(() => {
         getPageData(page)
+        // eslint-disable-next-line
     }, [page])
 
     return (
         <>{pageData.data.length === 0 && !loading ? <NotFound /> :
             <BgWrapper>
-                <div className='flex w-full h-full pt-10 items-center flex-col gap-6 relative overflow-y-auto pb-6'>
+                <div className='flex w-full h-full pt-10 items-center flex-col gap-6 relative overflow-y-auto pb-6 '>
                     <BackButton />
                     <h1 className='text-base md:text-4xl'>History</h1>
                     {loading ? <h1 className='text-xl md:text-4xl mt-10'>Loading...</h1> :

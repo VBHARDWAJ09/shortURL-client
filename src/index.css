@@ -35,4 +35,16 @@
     @apply bg-gray-700 text-white;
   }
 
+  .form-box {
+    @apply rounded-lg relative;
+  }
+
+  .form-input {
+    @apply w-full rounded p-3 bg-slate-600 text-white placeholder:text-white outline-none border-[1px] border-blue-400;
+  }
+
+  .err-text {
+    @apply text-red-600 text-xs absolute left-0 top-[105%];
+  }
+
 }

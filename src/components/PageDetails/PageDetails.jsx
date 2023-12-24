@@ -3,14 +3,16 @@ import BgWrapper from '../Wrapper/BgWrapper';
 import { useParams, Link } from 'react-router-dom';
 import BackButton from '../BackButton/BackButton';
 import { getUrlDataById, siteUrl } from '../../service/ApiService';
+import { useSelector } from 'react-redux';
 
 const PageDetails = () => {
     const { id } = useParams()
+    const { userToken } = useSelector(state => state.authReducer)
     const [loading, setLoading] = useState(true)
     const [data, setData] = useState({})
 
     const getUrlData = async () => {
-        const res = await getUrlDataById(id)
+        const res = await getUrlDataById(id, userToken)
         if (res && res.status.toString() === "200") {
             setLoading(false)
             setData(res.data.urlData)
@@ -42,7 +44,7 @@ const PageDetails = () => {
                         <tbody>
                             <tr className='odd:bg-gray-800 flex flex-col md:flex-row'>
                                 <td className='td'>{data?.fullUrl}</td>
-                                <td className='td'><Link  target='_blank' to={`/${data?.shortUrlId}`}>{siteUrl + data?.shortUrlId}</Link></td>
+                                <td className='td'><Link target='_blank' to={`/${data?.shortUrlId}`}>{siteUrl + data?.shortUrlId}</Link></td>
                                 <td className='td'>{data.clicks}</td>
                             </tr>
                         </tbody>
