@@ -9,6 +9,7 @@ const Register = () => {
     const [state, setState] = useState({ email: "", password: "", name: "" })
     const [error, setError] = useState({ email: false, password: false, name: false })
     const [loading, setLoading] = useState(false)
+    const [viewPassword, setViewPassword] = useState(false)
     const { userToken } = useSelector(state => state.authReducer)
     const [APIErrors, setAPIErrors] = useState([])
     const navigate = useNavigate()
@@ -98,8 +99,9 @@ const Register = () => {
                             <input type="text" name="email" value={state.email} onChange={handleTextChange} className='form-input' placeholder='Enter Email...' />
                             {error.email && <p className='err-text'>Invalid Email</p>}
                         </div>
-                        <div className="form-box">
-                            <input type="text" name="password" value={state.password} onChange={handleTextChange} className='form-input' placeholder='Enter Password...' />
+                        <div className="form-box relative">
+                            <input type={viewPassword ? "text" : "password"} name="password" value={state.password} onChange={handleTextChange} className='form-input' placeholder='Enter Password...' />
+                            {state.password && <p className='absolute right-4 top-2 text-xl cursor-pointer' onClick={() => setViewPassword(!viewPassword)}>{!viewPassword ? "👁" : "🙈"}</p>}
                             {error.password && <p className='err-text'>Password must have 5 characters</p>}
                         </div>
                         <input disabled={loading} className='bg-indigo-700 rounded-lg p-3 cursor-pointer hover:bg-indigo-500 transition-all 0.2s' type="submit" value={loading ? "Loading..." : "Register"} />
