@@ -10,6 +10,8 @@ npm start for local development
 Runs the app in the development mode.\
 Open [http://localhost:5000](http://localhost:5000) to view it in your browser and also add .env file with REACT_APP_BASE_URL, REACT_APP_SITE_URL
 
+REACT_APP_BASE_URL is api url and REACT_APP_SITE_URL client i.e. frontend server url
+
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
@@ -29,3 +31,5 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 For development 
 add .env file with REACT_APP_BASE_URL, REACT_APP_SITE_URL
 and then deploye it
+
+REACT_APP_BASE_URL is api url and REACT_APP_SITE_URL client i.e. frontend server url
