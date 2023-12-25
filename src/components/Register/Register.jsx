@@ -88,7 +88,7 @@ const Register = () => {
         <BgWrapper>
             <div className='w-full h-full flex pt-10 items-center flex-col gap-10 relative overflow-y-auto pb-6'>
 
-                <div className="w-full md:max-w-[340px]">
+                <div className="w-[96vh] md:max-w-[340px]">
                     <h3 className='text-2xl text-center'>User Register Form</h3>
                     <form className='flex flex-col gap-6 mt-6 bg-gray-800 py-8 px-6 rounded-lg' onSubmit={e => handleSubmit(e)}>
                         <div className="form-box">
