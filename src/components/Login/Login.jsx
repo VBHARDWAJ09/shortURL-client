@@ -93,7 +93,7 @@ const Login = () => {
                             {error.email && <p className='err-text'>Invalid Email</p>}
                         </div>
                         <div className="form-box relative">
-                            <input type={viewPassword ? "text" : "password"} name="password" value={state.password} onChange={handleTextChange} className='form-input' placeholder='Enter Password...' />
+                            <input type={viewPassword ? "text" : "password"} name="password" value={state.password} onChange={handleTextChange} className='form-input pr-12' placeholder='Enter Password...' />
                             {state.password && <p className='absolute right-4 top-2 text-xl cursor-pointer' onClick={() => setViewPassword(!viewPassword)}>{!viewPassword ? "👁" : "🙈"}</p>}
                             {error.password && <p className='err-text'>Password must have 5 characters</p>}
                         </div>
